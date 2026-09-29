@@ -1,0 +1,268 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Bites — Smart College Cafeteria</title>
+  <meta name="description" content="Campus Bites is a smart college cafeteria offering online pre-ordering, 
+  dynamic queue management, and menu voting — skip the line, enjoy your meal.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,
+  500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="{% static 'contact.css' %}">
+</head>
+<body>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+      <a href="index.html" class="nav-logo">Campus<span>Bites</span></a>
+
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="/login/" class="btn btn-outline nav-login">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero-grid">
+
+        <!-- Left column -->
+        <article class="hero-left">
+          <p class="eyebrow">Welcome to</p>
+          <h1 class="hero-title">Campus<br>Bites</h1>
+          <p class="hero-desc">
+            Skip long queues and enjoy a smarter cafeteria experience with
+            online pre-ordering, dynamic queue management, and menu voting.
+          </p>
+          <div class="hero-btns">
+            <a href="login.html" class="btn btn-primary">Get Started</a>
+            <a href="#menu" class="btn btn-outline">Explore Menu</a>
+          </div>
+        </article>
+
+        <!-- Center image -->
+        <div class="hero-center">
+          <div class="hero-img-frame">
+            <img
+              src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=1200&auto=format&fit=crop"
+              alt="Freshly prepared cafeteria meal plated on a dark table"
+              class="hero-img"
+              loading="lazy">
+          </div>
+        </div>
+
+        <!-- Right column -->
+        <aside class="hero-right">
+          <div class="hero-card-img">
+            <img
+              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop"
+              alt="Barista brewing fresh coffee at the campus counter"
+              loading="lazy">
+          </div>
+          <p class="hero-side-text">
+            Fresh meals prepared daily using quality ingredients.
+            Pre-order, pick up quickly, and never wait in long
+            cafeteria queues again.
+          </p>
+          <ul class="social-icons" aria-label="Social media links">
+            <li><a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.07 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.25.07-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.24-1.97.4-2.43A4.9 4.9 0 0 1 3.82 3 4.9 4.9 0 0 1 5.6 1.9c.46-.16 1.26-.35 2.43-.4C9.28 1.4 3.6 1.4 12 2.2zm0 2.16c-3.15 0-3.53 0-4.77.07-.96.04-1.48.2-1.82.34a3.06 3.06 0 0 0-1.13.73 3.06 3.06 0 0 0-.73 1.13c-.14.34-.3.86-.34 1.82-.07 1.24-.07 1.62-.07 4.77s0 3.53.07 4.77c.04.96.2 1.48.34 1.82.16.42.38.78.73 1.13.35.35.71.57 1.13.73.34.14.86.3 1.82.34 1.24.07 1.62.07 4.77.07s3.53 0 4.77-.07c.96-.04 1.48-.2 1.82-.34.42-.16.78-.38 1.13-.73.35-.35.57-.71.73-1.13.14-.34.3-.86.34-1.82.07-1.24.07-1.62.07-4.77s0-3.53-.07-4.77c-.04-.96-.2-1.48-.34-1.82a3.06 3.06 0 0 0-.73-1.13 3.06 3.06 0 0 0-1.13-.73c-.34-.14-.86-.3-1.82-.34-1.24-.07-1.62-.07-4.77-.07zm0 3.68a4.96 4.96 0 1 1 0 9.92 4.96 4.96 0 0 1 0-9.92zm0 8.18a3.22 3.22 0 1 0 0-6.44 3.22 3.22 0 0 0 0 6.44zm6.3-8.38a1.16 1.16 0 1 1-2.32 0 1.16 1.16 0 0 1 2.32 0z"/></svg>
+            </a></li>
+            <li><a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.9h2.65l.4-3.08h-3.05V8.06c0-.89.25-1.5 1.52-1.5h1.63V3.8A22 22 0 0 0 14.3 3.6c-2.35 0-3.96 1.43-3.96 4.07v2.35H7.68v3.08h2.66V21h3.16z"/></svg>
+            </a></li>
+            <li><a href="#" aria-label="Twitter">
+              <svg viewBox="0 0 24 24"><path d="M22 5.9c-.7.3-1.5.55-2.3.65a4 4 0 0 0 1.75-2.2c-.78.47-1.65.8-2.57.98a4.05 4.05 0 0 0-6.9 3.7A11.5 11.5 0 0 1 3.4 4.7a4.05 4.05 0 0 0 1.25 5.4c-.66-.02-1.29-.2-1.83-.5v.05a4.05 4.05 0 0 0 3.25 3.97c-.6.16-1.24.19-1.86.07a4.05 4.05 0 0 0 3.78 2.81A8.13 8.13 0 0 1 2 18.4a11.45 11.45 0 0 0 6.2 1.82c7.45 0 11.53-6.17 11.53-11.53l-.01-.52A8.2 8.2 0 0 0 22 5.9z"/></svg>
+            </a></li>
+            <li><a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.97V21h-4V9z"/></svg>
+            </a></li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- Floating circular badge -->
+      <div class="floating-badge" aria-hidden="true">
+        <svg viewBox="0 0 200 200" class="badge-ring">
+          <defs>
+            <path id="badgeCircle" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"/>
+          </defs>
+          <text font-size="13.5" letter-spacing="3.5" fill="#B5B5B5">
+            <textPath href="#badgeCircle" startOffset="0%">
+              SMART CAFETERIA &#8226; SMART CAFETERIA &#8226;
+            </textPath>
+          </text>
+        </svg>
+        <span class="badge-center">
+          <svg viewBox="0 0 24 24" class="badge-arrow"><path d="M12 4v14m0 0-5-5m5 5 5-5" stroke="#FF8A3D" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES PREVIEW ============ -->
+    <section class="features" id="features">
+      <div class="section-head">
+        <p class="eyebrow center">What we offer</p>
+        <h2 class="section-title">A cafeteria built around your schedule</h2>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature-card fade-in">
+          <span class="feature-icon">🍽</span>
+          <h3>Pre-Order Meals</h3>
+          <p>Order food before arriving and walk straight to pickup.</p>
+        </article>
+
+        <article class="feature-card fade-in delay-1">
+          <span class="feature-icon">⏰</span>
+          <h3>Dynamic Queue</h3>
+          <p>Choose the least crowded pickup slot and skip the rush.</p>
+        </article>
+
+        <article class="feature-card fade-in delay-2">
+          <span class="feature-icon">🗳</span>
+          <h3>Smart Voting</h3>
+          <p>Vote for tomorrow's special menu and shape what's served.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ MENU PREVIEW (anchor target) ============ -->
+    <section class="menu-anchor" id="menu"></section>
+
+    <!-- ============ ABOUT PREVIEW ============ -->
+    <section class="about" id="about">
+      <div class="about-grid">
+        <div class="about-img fade-in">
+          <img
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop"
+            alt="Students enjoying a meal together in a modern cafeteria"
+            loading="lazy">
+        </div>
+
+        <article class="about-content fade-in delay-1">
+          <p class="eyebrow">About Campus Bites</p>
+          <h2 class="section-title">Why Campus Bites?</h2>
+          <p class="about-text">
+            Campus Bites blends thoughtful design with everyday convenience.
+            Pre-order your meal ahead of time, let our system balance queues
+            across pickup windows, and grab your food the moment it's ready.
+            Less waiting, faster pickup, and smarter demand prediction mean
+            the kitchen always knows what to cook — and you always know
+            when to show up.
+          </p>
+          <a href="about.html" class="btn btn-primary">Learn More</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact-section" id="contact">
+      <div class="contact-grid">
+
+        <article class="contact-info fade-in">
+          <p class="eyebrow">Get in touch</p>
+          <h2 class="section-title">We'd love to hear from you</h2>
+          <p class="contact-text">
+            Questions about pre-ordering, pickup slots, or partnering with
+            Campus Bites? Send us a message and we'll get back to you
+            within one business day.
+          </p>
+
+          <ul class="contact-details">
+            <li>
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3V5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 5l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <a href="mailto:hello@campusbites.edu">hello@campusbites.edu</a>
+            </li>
+            <li>
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.1-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <a href="tel:+910000000000">+91 00000 00000</a>
+            </li>
+            <li>
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 22s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              </span>
+              <span>Campus Bites Cafeteria, Main Block, Ground Floor</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="contact-form-card fade-in delay-1">
+          <form class="contact-form" id="contactForm" novalidate>
+
+            <div class="form-group">
+              <label for="contactName">Full Name</label>
+              <input type="text" id="contactName" name="name" placeholder="Your name" required minlength="2">
+              <span class="error-message" id="contactNameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contactEmail">Email</label>
+              <input type="email" id="contactEmail" name="email" placeholder="you@college.edu" required>
+              <span class="error-message" id="contactEmailError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="message" rows="4" placeholder="How can we help?" required minlength="10"></textarea>
+              <span class="error-message" id="contactMessageError"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="contactSubmitBtn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+
+            <p class="form-success" id="contactSuccess" hidden>✓ Message sent! We'll get back to you soon.</p>
+          </form>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">Campus<span>Bites</span></a>
+        <p>Smarter meals, shorter lines.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <p class="footer-copy">&copy; 2026 Campus Bites. All rights reserved.</p>
+  </footer>
+
+  
+  <script src="{% static 'contact.js' %}"></script>
+</body>
+</html>

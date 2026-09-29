@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Campus Bites</title>
+  <meta name="description" content="Your Campus Bites student dashboard — pre-order meals, track the queue, and vote on tomorrow's menu.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets: base design system, then dashboard-specific -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-page">
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+
+      <!-- Logo with inline SVG mark -->
+      <a href="dashboard.html" class="nav-logo dash-logo">
+        <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="19" fill="none" stroke="#FF8A3D" stroke-width="1.4"/>
+          <path d="M14 11v9a3 3 0 0 0 3 3v7" stroke="#FFFFFF" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M14 11v6M17 11v6M20 11v6" stroke="#FFFFFF" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M27 11c-2 0-3 2-3 4.5S25 20 27 20v10" stroke="#FF8A3D" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Campus<span>Bites</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="#orders">Orders</a></li>
+        <li><a href="#queue">Queue</a></li>
+        <li><a href="#voting">Voting</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+
+      <a href="index.html" class="btn btn-outline nav-login">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO WELCOME SECTION ============ -->
+    <section class="dash-hero">
+      <div class="dash-hero-grid">
+
+        <article class="dash-hero-left">
+          <p class="eyebrow" id="greeting">Welcome Back,</p>
+          <h1 class="dash-hero-title">
+            <span id="studentName">Student</span>!
+          </h1>
+          <h2 class="dash-hero-question">What would you like to eat today?</h2>
+
+          <!-- Search bar -->
+          <div class="search-bar">
+            <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" stroke="#B5B5B5" stroke-width="1.6" fill="none"/>
+              <line x1="16.2" y1="16.2" x2="21" y2="21" stroke="#B5B5B5" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search meals..."
+              aria-label="Search meals">
+          </div>
+
+          <p class="dynamic-special">
+            ✨ Today's Pick: <span id="dynamicDish">Loading...</span>
+          </p>
+        </article>
+
+        <div class="dash-hero-right">
+          <div class="dash-hero-img-frame">
+            <img
+              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1000&auto=format&fit=crop"
+              alt="Beautifully plated campus cafeteria meal"
+              loading="lazy">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ QUICK ACTION CARDS ============ -->
+    <section class="quick-actions">
+      <div class="quick-actions-grid">
+
+        <a href="menu.html" class="quick-card">
+          <span class="quick-icon">🍽</span>
+          <h3>Browse Menu</h3>
+          <p>See every dish available today</p>
+        </a>
+
+        <a href="#" class="quick-card">
+          <span class="quick-icon">🛒</span>
+          <h3>My Cart</h3>
+          <p>Review items before checkout</p>
+        </a>
+
+        <a href="#queue" class="quick-card">
+          <span class="quick-icon">⏰</span>
+          <h3>Dynamic Queue</h3>
+          <p>Pick the least crowded slot</p>
+        </a>
+
+        <a href="#voting" class="quick-card">
+          <span class="quick-icon">🗳</span>
+          <h3>Vote Today's Menu</h3>
+          <p>Shape tomorrow's specials</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ============ TODAY'S SPECIALS ============ -->
+    <section class="specials" id="specials">
+      <div class="section-head">
+        <p class="eyebrow center">Fresh &amp; ready</p>
+        <h2 class="section-title">Today's Specials</h2>
+      </div>
+
+      <div class="specials-grid" id="specialsGrid">
+
+        <article class="food-card" data-name="margherita pizza" data-category="italian">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600&auto=format&fit=crop" alt="Margherita pizza with fresh basil" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Italian</p>
+            <h3 class="food-name">Margherita Pizza</h3>
+            <div class="food-footer">
+              <span class="food-price">₹180</span>
+              <button type="button" class="btn btn-primary btn-sm">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card" data-name="chicken biryani" data-category="indian">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=600&auto=format&fit=crop" alt="Chicken biryani with basmati rice" loading="lazy">
+            <span class="badge badge-nonveg">Non-Veg</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Indian</p>
+            <h3 class="food-name">Chicken Biryani</h3>
+            <div class="food-footer">
+              <span class="food-price">₹150</span>
+              <button type="button" class="btn btn-primary btn-sm">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card" data-name="paneer wrap" data-category="fast food">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?q=80&w=600&auto=format&fit=crop" alt="Paneer wrap with fresh vegetables" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Fast Food</p>
+            <h3 class="food-name">Paneer Wrap</h3>
+            <div class="food-footer">
+              <span class="food-price">₹95</span>
+              <button type="button" class="btn btn-primary btn-sm">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card" data-name="cold coffee" data-category="beverages">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=600&auto=format&fit=crop" alt="Iced cold coffee in a glass" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Beverages</p>
+            <h3 class="food-name">Cold Coffee</h3>
+            <div class="food-footer">
+              <span class="food-price">₹70</span>
+              <button type="button" class="btn btn-primary btn-sm">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card" data-name="grilled chicken sandwich" data-category="fast food">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1567234669003-dce7a7a88821?q=80&w=600&auto=format&fit=crop" alt="Grilled chicken sandwich on a wooden board" loading="lazy">
+            <span class="badge badge-nonveg">Non-Veg</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Fast Food</p>
+            <h3 class="food-name">Grilled Chicken Sandwich</h3>
+            <div class="food-footer">
+              <span class="food-price">₹120</span>
+              <button type="button" class="btn btn-primary btn-sm">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="food-card" data-name="chocolate brownie" data-category="desserts">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop" alt="Warm chocolate brownie with a dusting of sugar" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Desserts</p>
+            <h3 class="food-name">Chocolate Brownie</h3>
+            <div class="food-footer">
+              <span class="food-price">₹60</span>
+              <button type="button" class="btn btn-primary btn-sm">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Shown by JS when a search returns no matches -->
+      <p class="no-results" id="noResults" hidden>No meals match your search — try another keyword.</p>
+    </section>
+
+    <!-- ============ QUEUE STATUS + VOTING + ANNOUNCEMENT ============ -->
+    <section class="dash-grid" id="queue">
+
+      <!-- Queue status card -->
+      <article class="panel-card queue-card">
+        <div class="panel-head">
+          <h3>Today's Queue Status</h3>
+          <span class="status-dot" id="statusDot" aria-hidden="true"></span>
+        </div>
+
+        <p class="status-text" id="statusText">Checking queue&hellip;</p>
+
+        <div class="queue-stats">
+          <div class="queue-stat">
+            <span class="stat-label">Current Queue</span>
+            <span class="stat-value" id="queueCount">—</span>
+          </div>
+          <div class="queue-stat">
+            <span class="stat-label">Estimated Wait</span>
+            <span class="stat-value" id="waitTime">—</span>
+          </div>
+          <div class="queue-stat">
+            <span class="stat-label">Best Pickup Slot</span>
+            <span class="stat-value">12:45 PM</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Voting preview card -->
+      <article class="panel-card vote-card" id="voting">
+        <div class="panel-head">
+          <h3>Today's Most Voted Dish</h3>
+        </div>
+
+        <p class="vote-dish">🍕 Pizza</p>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="voteProgress"></div>
+        </div>
+        <p class="progress-label"><span id="votePercent">0</span>% of votes</p>
+
+        <a href="#voting" class="btn btn-outline btn-block">Vote Now</a>
+      </article>
+
+      <!-- Announcement card -->
+      <article class="panel-card announcement-card" id="orders">
+        <p class="eyebrow">Today's Special Offer</p>
+        <h3 class="announcement-title">Buy 1 Coffee<br>Get 1 Cookie Free</h3>
+        <p class="announcement-sub">Valid at pickup counters until 6 PM today.</p>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="dashboard.html" class="nav-logo">Campus<span>Bites</span></a>
+        <p>Smarter meals, shorter lines.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="#queue">Queue</a></li>
+          <li><a href="#voting">Voting</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-links" aria-label="Support navigation">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Report an Issue</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <p class="footer-copy">&copy; 2026 Campus Bites. All rights reserved.</p>
+  </footer>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,505 @@
+/* ==========================================================
+   Campus Bites — dashboard.css
+   Student Dashboard styling. Relies on design tokens
+   (colors, fonts, radius, shadow) defined in style.css
+   :root — this file must be loaded after it.
+   ========================================================== */
+
+/* ---------- Nav logo icon ---------- */
+.dash-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+/* ---------- Dashboard hero ---------- */
+.dash-hero {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 70px 40px 100px;
+}
+
+.dash-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.dash-hero-left {
+  animation: fadeUp 0.9s ease both;
+}
+
+.dash-hero-title {
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  margin-bottom: 18px;
+}
+
+.dash-hero-question {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--text-secondary);
+  margin-bottom: 34px;
+}
+
+/* ---------- Search bar ---------- */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid var(--card-border);
+  border-radius: 50px;
+  padding: 14px 24px;
+  max-width: 420px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar:focus-within {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px rgba(255, 138, 61, 0.12);
+}
+
+.search-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.search-bar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+}
+
+.search-bar input::placeholder {
+  color: #7a7a7a;
+}
+
+.dynamic-special {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.dynamic-special span {
+  color: var(--orange);
+  font-weight: 500;
+}
+
+/* ---------- Hero image ---------- */
+.dash-hero-right {
+  animation: fadeUp 0.9s ease 0.2s both;
+}
+
+.dash-hero-img-frame {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  aspect-ratio: 5 / 4;
+}
+
+.dash-hero-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.dash-hero-img-frame:hover img {
+  transform: scale(1.08);
+}
+
+/* ---------- Quick action cards ---------- */
+.quick-actions {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 40px 120px;
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+
+.quick-card {
+  background: rgba(24, 24, 24, 0.55);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  text-align: left;
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.quick-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 138, 61, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.quick-icon {
+  font-size: 1.9rem;
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.quick-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.quick-card p {
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+}
+
+/* ---------- Today's specials ---------- */
+.specials {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 40px 120px;
+}
+
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.food-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.food-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-soft);
+  border-color: rgba(255, 138, 61, 0.3);
+}
+
+.food-img {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.food-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.food-card:hover .food-img img {
+  transform: scale(1.1);
+}
+
+.badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.badge-veg {
+  background: rgba(46, 204, 113, 0.18);
+  color: var(--green);
+  border: 1px solid rgba(46, 204, 113, 0.4);
+}
+
+.badge-nonveg {
+  background: rgba(255, 138, 61, 0.18);
+  color: var(--orange);
+  border: 1px solid rgba(255, 138, 61, 0.4);
+}
+
+.food-info {
+  padding: 22px 24px 26px;
+}
+
+.food-category {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+.food-name {
+  font-size: 1.15rem;
+  margin-bottom: 18px;
+}
+
+.food-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.food-price {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.btn-sm {
+  padding: 10px 22px;
+  font-size: 0.82rem;
+}
+
+.no-results {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-top: 50px;
+  font-size: 0.95rem;
+}
+
+/* ---------- Dashboard grid: queue / voting / announcement ---------- */
+.dash-grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 40px 140px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.panel-card {
+  background: rgba(24, 24, 24, 0.6);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.panel-card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: var(--shadow-soft);
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.panel-head h3 {
+  font-size: 1.15rem;
+}
+
+/* ---------- Queue card ---------- */
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.6);
+  animation: pulse 1.8s infinite;
+}
+
+.status-dot.busy {
+  background: var(--orange);
+  box-shadow: 0 0 0 0 rgba(255, 138, 61, 0.6);
+  animation: pulseBusy 1.8s infinite;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.55); }
+  70%  { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+}
+
+@keyframes pulseBusy {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 138, 61, 0.55); }
+  70%  { box-shadow: 0 0 0 10px rgba(255, 138, 61, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 138, 61, 0); }
+}
+
+.status-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+.queue-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.queue-stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.queue-stat:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* ---------- Voting card ---------- */
+.vote-dish {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 50px;
+  background: linear-gradient(90deg, var(--orange), #ffb27a);
+  transition: width 1.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.progress-label {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 26px;
+}
+
+.progress-label span {
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* ---------- Announcement card ---------- */
+.announcement-card {
+  background: linear-gradient(155deg, rgba(255, 138, 61, 0.14), rgba(24, 24, 24, 0.7));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.announcement-title {
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+
+.announcement-sub {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+}
+
+/* ==========================================================
+   Responsive — Laptop (≤ 1200px)
+   ========================================================== */
+@media (max-width: 1200px) {
+  .quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dash-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .announcement-card {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ==========================================================
+   Responsive — Tablet (≤ 1024px)
+   ========================================================== */
+@media (max-width: 1024px) {
+  .dash-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-hero-right {
+    order: -1;
+  }
+
+  .specials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================
+   Responsive — Mobile (≤ 768px)
+   ========================================================== */
+@media (max-width: 768px) {
+  .dash-hero {
+    padding: 40px 24px 70px;
+  }
+
+  .quick-actions,
+  .specials,
+  .dash-grid {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .specials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .announcement-card {
+    grid-column: auto;
+  }
+
+  .search-bar {
+    max-width: 100%;
+  }
+}

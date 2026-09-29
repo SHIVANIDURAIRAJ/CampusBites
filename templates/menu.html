@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — Campus Bites</title>
+  <meta name="description" content="Explore the full Campus Bites menu — breakfast, lunch, snacks, beverages, and desserts, ready to pre-order.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets: base design system, then menu-specific -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body class="menu-page">
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+
+      <!-- Logo with inline SVG mark -->
+      <a href="dashboard.html" class="nav-logo dash-logo">
+        <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="19" fill="none" stroke="#FF8A3D" stroke-width="1.4"/>
+          <path d="M14 11v9a3 3 0 0 0 3 3v7" stroke="#FFFFFF" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M14 11v6M17 11v6M20 11v6" stroke="#FFFFFF" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+          <path d="M27 11c-2 0-3 2-3 4.5S25 20 27 20v10" stroke="#FF8A3D" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Campus<span>Bites</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="dashboard.html#queue">Queue</a></li>
+        <li><a href="dashboard.html#voting">Voting</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Cart icon with live item count -->
+        <a href="#" class="nav-icon-btn" id="cartButton" aria-label="View cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="10" cy="20" r="1.4" fill="currentColor"/>
+            <circle cx="17" cy="20" r="1.4" fill="currentColor"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+
+        <!-- Student profile -->
+        <a href="dashboard.html" class="nav-icon-btn" aria-label="Student profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M4.5 20c1.4-3.6 4.5-5.5 7.5-5.5s6.1 1.9 7.5 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </a>
+
+        <a href="index.html" class="btn btn-outline nav-login">Logout</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO BANNER ============ -->
+    <section class="menu-hero">
+      <img
+        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop"
+        alt="Overhead view of a variety of freshly prepared dishes"
+        class="menu-hero-img"
+        loading="lazy">
+      <div class="menu-hero-overlay"></div>
+      <div class="menu-hero-content fade-in">
+        <p class="eyebrow center">Campus Bites Menu</p>
+        <h1 class="menu-hero-title">Explore Our Menu</h1>
+        <p class="menu-hero-subtitle">Freshly prepared meals, snacks, and beverages for every student.</p>
+      </div>
+    </section>
+
+    <!-- ============ SEARCH ============ -->
+    <section class="menu-search-section">
+      <div class="search-bar menu-search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="#B5B5B5" stroke-width="1.6" fill="none"/>
+          <line x1="16.2" y1="16.2" x2="21" y2="21" stroke="#B5B5B5" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search food..."
+          aria-label="Search food">
+      </div>
+    </section>
+
+    <!-- ============ CATEGORY FILTER ============ -->
+    <section class="category-filter">
+      <div class="filter-group" id="filterGroup" role="group" aria-label="Filter by category">
+        <button type="button" class="filter-btn active" data-category="all">All</button>
+        <button type="button" class="filter-btn" data-category="breakfast">Breakfast</button>
+        <button type="button" class="filter-btn" data-category="lunch">Lunch</button>
+        <button type="button" class="filter-btn" data-category="snacks">Snacks</button>
+        <button type="button" class="filter-btn" data-category="beverages">Beverages</button>
+        <button type="button" class="filter-btn" data-category="desserts">Desserts</button>
+      </div>
+    </section>
+
+    <!-- ============ FOOD GRID ============ -->
+    <section class="food-menu" id="foodMenu">
+      <div class="food-grid" id="foodGrid">
+
+        <!-- 1 -->
+        <article class="food-card" data-name="masala dosa" data-category="breakfast" data-available="true">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1630383249896-483d92fa4b03?q=80&w=600&auto=format&fit=crop" alt="Crispy masala dosa served with chutney and sambar" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Breakfast</p>
+            <h3 class="food-name">Masala Dosa</h3>
+            <p class="food-desc">Crisp rice crepe filled with spiced potato, served with chutney and sambar.</p>
+            <div class="food-rating" aria-label="Rating 4.5 out of 5">★★★★☆</div>
+            <div class="food-footer">
+              <span class="food-price">₹70</span>
+              <button type="button" class="btn btn-primary btn-sm order-btn">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="food-card" data-name="stuffed paratha" data-category="breakfast" data-available="true">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=600&auto=format&fit=crop" alt="Stuffed paratha with a side of curd and pickle" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Breakfast</p>
+            <h3 class="food-name">Stuffed Paratha</h3>
+            <p class="food-desc">Whole-wheat flatbread stuffed with spiced potato, served with curd.</p>
+            <div class="food-rating" aria-label="Rating 4 out of 5">★★★★☆</div>
+            <div class="food-footer">
+              <span class="food-price">₹60</span>
+              <button type="button" class="btn btn-primary btn-sm order-btn">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="food-card" data-name="chicken biryani" data-category="lunch" data-available="true">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=600&auto=format&fit=crop" alt="Chicken biryani with basmati rice and garnish" loading="lazy">
+            <span class="badge badge-nonveg">Non-Veg</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Lunch</p>
+            <h3 class="food-name">Chicken Biryani</h3>
+            <p class="food-desc">Fragrant basmati rice layered with tender spiced chicken.</p>
+            <div class="food-rating" aria-label="Rating 5 out of 5">★★★★★</div>
+            <div class="food-footer">
+              <span class="food-price">₹150</span>
+              <button type="button" class="btn btn-primary btn-sm order-btn">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="food-card" data-name="paneer butter masala thali" data-category="lunch" data-available="true">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=600&auto=format&fit=crop" alt="Paneer butter masala thali with rice and roti" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Lunch</p>
+            <h3 class="food-name">Paneer Butter Masala Thali</h3>
+            <p class="food-desc">Creamy paneer curry served with rice, roti, and a fresh salad.</p>
+            <div class="food-rating" aria-label="Rating 4.5 out of 5">★★★★☆</div>
+            <div class="food-footer">
+              <span class="food-price">₹140</span>
+              <button type="button" class="btn btn-primary btn-sm order-btn">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="food-card" data-name="veg fried rice" data-category="lunch" data-available="false">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=600&auto=format&fit=crop" alt="Vegetable fried rice with mixed vegetables" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+            <span class="badge badge-soldout">Sold Out</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Lunch</p>
+            <h3 class="food-name">Veg Fried Rice</h3>
+            <p class="food-desc">Wok-tossed rice with crisp vegetables and a hint of soy.</p>
+            <div class="food-rating" aria-label="Rating 4 out of 5">★★★★☆</div>
+            <div class="food-footer">
+              <span class="food-price">₹110</span>
+              <button type="button" class="btn btn-primary btn-sm order-btn" disabled>Sold Out</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="food-card" data-name="paneer wrap" data-category="snacks" data-available="true">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?q=80&w=600&auto=format&fit=crop" alt="Paneer wrap with fresh vegetables" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Snacks</p>
+            <h3 class="food-name">Paneer Wrap</h3>
+            <p class="food-desc">Soft tortilla rolled with grilled paneer and crunchy veggies.</p>
+            <div class="food-rating" aria-label="Rating 4 out of 5">★★★★☆</div>
+            <div class="food-footer">
+              <span class="food-price">₹95</span>
+              <button type="button" class="btn btn-primary btn-sm order-btn">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="food-card" data-name="grilled chicken sandwich" data-category="snacks" data-available="true">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1567234669003-dce7a7a88821?q=80&w=600&auto=format&fit=crop" alt="Grilled chicken sandwich on a wooden board" loading="lazy">
+            <span class="badge badge-nonveg">Non-Veg</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Snacks</p>
+            <h3 class="food-name">Grilled Chicken Sandwich</h3>
+            <p class="food-desc">Toasted sandwich layered with grilled chicken and fresh greens.</p>
+            <div class="food-rating" aria-label="Rating 4.5 out of 5">★★★★☆</div>
+            <div class="food-footer">
+              <span class="food-price">₹120</span>
+              <button type="button" class="btn btn-primary btn-sm order-btn">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8 -->
+        <article class="food-card" data-name="samosa chaat" data-category="snacks" data-available="true">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=600&auto=format&fit=crop" alt="Samosa chaat topped with yogurt and chutneys" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Snacks</p>
+            <h3 class="food-name">Samosa Chaat</h3>
+            <p class="food-desc">Crushed samosas topped with yogurt, tamarind, and mint chutney.</p>
+            <div class="food-rating" aria-label="Rating 4 out of 5">★★★★☆</div>
+            <div class="food-footer">
+              <span class="food-price">₹65</span>
+              <button type="button" class="btn btn-primary btn-sm order-btn">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9 -->
+        <article class="food-card" data-name="cold coffee" data-category="beverages" data-available="true">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=600&auto=format&fit=crop" alt="Iced cold coffee in a glass" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Beverages</p>
+            <h3 class="food-name">Cold Coffee</h3>
+            <p class="food-desc">Chilled coffee blended with milk and a scoop of ice cream.</p>
+            <div class="food-rating" aria-label="Rating 4.5 out of 5">★★★★☆</div>
+            <div class="food-footer">
+              <span class="food-price">₹70</span>
+              <button type="button" class="btn btn-primary btn-sm order-btn">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10 -->
+        <article class="food-card" data-name="masala chai" data-category="beverages" data-available="false">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?q=80&w=600&auto=format&fit=crop" alt="Cup of masala chai with spices" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+            <span class="badge badge-soldout">Sold Out</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Beverages</p>
+            <h3 class="food-name">Masala Chai</h3>
+            <p class="food-desc">Traditional spiced tea brewed with milk and aromatic spices.</p>
+            <div class="food-rating" aria-label="Rating 4.5 out of 5">★★★★☆</div>
+            <div class="food-footer">
+              <span class="food-price">₹30</span>
+              <button type="button" class="btn btn-primary btn-sm order-btn" disabled>Sold Out</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11 -->
+        <article class="food-card" data-name="chocolate brownie" data-category="desserts" data-available="true">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=600&auto=format&fit=crop" alt="Warm chocolate brownie with a dusting of sugar" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Desserts</p>
+            <h3 class="food-name">Chocolate Brownie</h3>
+            <p class="food-desc">Fudgy chocolate brownie served warm with a dusting of sugar.</p>
+            <div class="food-rating" aria-label="Rating 5 out of 5">★★★★★</div>
+            <div class="food-footer">
+              <span class="food-price">₹60</span>
+              <button type="button" class="btn btn-primary btn-sm order-btn">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 12 -->
+        <article class="food-card" data-name="gulab jamun" data-category="desserts" data-available="true">
+          <div class="food-img">
+            <img src="https://images.unsplash.com/photo-1666190092208-2d5d4a5f75d3?q=80&w=600&auto=format&fit=crop" alt="Gulab jamun soaked in sugar syrup" loading="lazy">
+            <span class="badge badge-veg">Veg</span>
+            <span class="badge badge-available">Available</span>
+          </div>
+          <div class="food-info">
+            <p class="food-category">Desserts</p>
+            <h3 class="food-name">Gulab Jamun</h3>
+            <p class="food-desc">Soft milk dumplings soaked in warm, fragrant sugar syrup.</p>
+            <div class="food-rating" aria-label="Rating 4.5 out of 5">★★★★☆</div>
+            <div class="food-footer">
+              <span class="food-price">₹50</span>
+              <button type="button" class="btn btn-primary btn-sm order-btn">Order Now</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Shown by JS when search/filter returns no matches -->
+      <p class="no-results" id="noResults" hidden>No dishes match your search — try another keyword or category.</p>
+    </section>
+
+    <!-- ============ CHEF RECOMMENDATION ============ -->
+    <section class="chef-pick">
+      <article class="chef-card fade-in">
+        <div class="chef-img-frame">
+          <img id="chefImg" src="" alt="" loading="lazy">
+        </div>
+        <div class="chef-content">
+          <p class="eyebrow">Today's Chef Recommendation</p>
+          <h2 class="chef-name" id="chefName">Loading&hellip;</h2>
+          <p class="chef-desc" id="chefDesc"></p>
+
+          <div class="chef-stats">
+            <div class="chef-stat">
+              <span class="stat-label">Calories</span>
+              <span class="stat-value" id="chefCalories">—</span>
+            </div>
+            <div class="chef-stat">
+              <span class="stat-label">Prep Time</span>
+              <span class="stat-value" id="chefTime">—</span>
+            </div>
+            <div class="chef-stat">
+              <span class="stat-label">Price</span>
+              <span class="stat-value" id="chefPrice">—</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary" id="chefOrderBtn">Order Now</button>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="dashboard.html" class="nav-logo">Campus<span>Bites</span></a>
+        <p>Smarter meals, shorter lines.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="dashboard.html#queue">Queue</a></li>
+          <li><a href="dashboard.html#voting">Voting</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-links" aria-label="Contact navigation">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@campusbites.edu">hello@campusbites.edu</a></li>
+          <li><a href="tel:+910000000000">+91 00000 00000</a></li>
+          <li><a href="index.html#contact">Visit Contact Page</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <ul class="social-icons">
+          <li><a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.07 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.25.07-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.24-1.97.4-2.43A4.9 4.9 0 0 1 3.82 3 4.9 4.9 0 0 1 5.6 1.9c.46-.16 1.26-.35 2.43-.4C9.28 1.4 3.6 1.4 12 2.2zm0 2.16c-3.15 0-3.53 0-4.77.07-.96.04-1.48.2-1.82.34a3.06 3.06 0 0 0-1.13.73 3.06 3.06 0 0 0-.73 1.13c-.14.34-.3.86-.34 1.82-.07 1.24-.07 1.62-.07 4.77s0 3.53.07 4.77c.04.96.2 1.48.34 1.82.16.42.38.78.73 1.13.35.35.71.57 1.13.73.34.14.86.3 1.82.34 1.24.07 1.62.07 4.77.07s3.53 0 4.77-.07c.96-.04 1.48-.2 1.82-.34.42-.16.78-.38 1.13-.73.35-.35.57-.71.73-1.13.14-.34.3-.86.34-1.82.07-1.24.07-1.62.07-4.77s0-3.53-.07-4.77c-.04-.96-.2-1.48-.34-1.82a3.06 3.06 0 0 0-.73-1.13 3.06 3.06 0 0 0-1.13-.73c-.34-.14-.86-.3-1.82-.34-1.24-.07-1.62-.07-4.77-.07zm0 3.68a4.96 4.96 0 1 1 0 9.92 4.96 4.96 0 0 1 0-9.92zm0 8.18a3.22 3.22 0 1 0 0-6.44 3.22 3.22 0 0 0 0 6.44zm6.3-8.38a1.16 1.16 0 1 1-2.32 0 1.16 1.16 0 0 1 2.32 0z"/></svg>
+          </a></li>
+          <li><a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.9h2.65l.4-3.08h-3.05V8.06c0-.89.25-1.5 1.52-1.5h1.63V3.8A22 22 0 0 0 14.3 3.6c-2.35 0-3.96 1.43-3.96 4.07v2.35H7.68v3.08h2.66V21h3.16z"/></svg>
+          </a></li>
+          <li><a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M22 5.9c-.7.3-1.5.55-2.3.65a4 4 0 0 0 1.75-2.2c-.78.47-1.65.8-2.57.98a4.05 4.05 0 0 0-6.9 3.7A11.5 11.5 0 0 1 3.4 4.7a4.05 4.05 0 0 0 1.25 5.4c-.66-.02-1.29-.2-1.83-.5v.05a4.05 4.05 0 0 0 3.25 3.97c-.6.16-1.24.19-1.86.07a4.05 4.05 0 0 0 3.78 2.81A8.13 8.13 0 0 1 2 18.4a11.45 11.45 0 0 0 6.2 1.82c7.45 0 11.53-6.17 11.53-11.53l-.01-.52A8.2 8.2 0 0 0 22 5.9z"/></svg>
+          </a></li>
+          <li><a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.97V21h-4V9z"/></svg>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-copy">&copy; 2026 Campus Bites. All rights reserved.</p>
+  </footer>
+
+  <script src="js/menu.js"></script>
+</body>
+</html>

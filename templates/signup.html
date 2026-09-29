@@ -1,0 +1,636 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Create Account — Campus Bites</title>
+
+  <meta
+    name="description"
+    content="Create your Campus Bites account to pre-order meals, balance queues, and vote on tomorrow's menu."
+  >
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="{% static 'auth.css' %}">
+  <link rel="stylesheet" href="{% static 'responsive.css' %}">
+</head>
+
+<body class="auth-page">
+
+  <!-- ================= HEADER ================= -->
+
+  <header class="site-header">
+
+    <nav class="navbar" aria-label="Primary navigation">
+
+      <!-- Logo -->
+      <a href="/" class="nav-logo">
+        Campus<span>Bites</span>
+      </a>
+
+      <!-- Navigation -->
+      <ul class="nav-menu">
+
+        <li>
+          <a href="/#home">Home</a>
+        </li>
+
+        <li>
+          <a href="/#about">About</a>
+        </li>
+
+        <li>
+          <a href="/#menu">Menu</a>
+        </li>
+
+        <li>
+          <a href="/#features">Features</a>
+        </li>
+
+        <li>
+          <a href="/#contact">Contact</a>
+        </li>
+
+      </ul>
+
+      <!-- Back to Home -->
+      <a href="/" class="btn btn-outline nav-login">
+        Back to Home
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main>
+
+    <section class="auth-split">
+
+      <!-- ================= LEFT VISUAL ================= -->
+
+      <div class="auth-visual">
+
+        <img
+          src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=1200&auto=format&fit=crop"
+          alt="Students gathered around a modern campus cafeteria table"
+          class="auth-visual-img"
+          loading="lazy"
+        >
+
+        <div class="auth-visual-overlay"></div>
+
+        <div class="auth-visual-text">
+
+          <p class="auth-visual-logo">
+            Campus<span>Bites</span>
+          </p>
+
+          <p class="auth-visual-tagline">
+            Join the smarter way to eat on campus.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================= SIGNUP FORM ================= -->
+
+      <div class="auth-form-wrap">
+
+        <article class="auth-card auth-card-wide fade-in">
+
+          <p class="eyebrow">
+            Get started
+          </p>
+
+          <h1 class="auth-title">
+            Create Your Account
+          </h1>
+
+          <p class="auth-subtitle">
+            Join Campus Bites and enjoy smarter cafeteria ordering.
+          </p>
+
+
+          <!-- SIGNUP FORM -->
+
+          <form
+            class="auth-form"
+            id="signupForm"
+            action="#"
+            method="post"
+            novalidate
+          >
+
+            <div class="form-grid">
+
+
+              <!-- FULL NAME -->
+
+              <div class="form-group">
+
+                <label for="fullname">
+                  Full Name
+                </label>
+
+                <input
+                  type="text"
+                  id="fullname"
+                  name="fullname"
+                  placeholder="Your full name"
+                  required
+                  minlength="2"
+                  maxlength="60"
+                  autocomplete="name"
+                >
+
+                <span
+                  class="error-message"
+                  id="fullnameError"
+                ></span>
+
+              </div>
+
+
+              <!-- STUDENT ID -->
+
+              <div class="form-group">
+
+                <label for="studentid">
+                  Student ID
+                </label>
+
+                <input
+                  type="text"
+                  id="studentid"
+                  name="studentid"
+                  placeholder="e.g. CB2026314"
+                  required
+                  minlength="4"
+                  maxlength="20"
+                >
+
+                <span
+                  class="error-message"
+                  id="studentidError"
+                ></span>
+
+              </div>
+
+
+              <!-- COLLEGE EMAIL -->
+
+              <div class="form-group">
+
+                <label for="signup-email">
+                  College Email
+                </label>
+
+                <input
+                  type="email"
+                  id="signup-email"
+                  name="email"
+                  placeholder="you@college.edu"
+                  required
+                  autocomplete="email"
+                >
+
+                <span
+                  class="error-message"
+                  id="signupEmailError"
+                ></span>
+
+              </div>
+
+
+              <!-- PHONE -->
+
+              <div class="form-group">
+
+                <label for="phone">
+                  Phone Number
+                </label>
+
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="10-digit mobile number"
+                  required
+                  pattern="[0-9]{10}"
+                  minlength="10"
+                  maxlength="10"
+                  autocomplete="tel"
+                >
+
+                <span
+                  class="error-message"
+                  id="phoneError"
+                ></span>
+
+              </div>
+
+
+              <!-- DEPARTMENT -->
+
+              <div class="form-group">
+
+                <label for="department">
+                  Department
+                </label>
+
+                <select
+                  id="department"
+                  name="department"
+                  required
+                >
+
+                  <option value="" disabled selected>
+                    Select department
+                  </option>
+
+                  <option value="cse">
+                    Computer Science
+                  </option>
+
+                  <option value="ece">
+                    Electronics &amp; Communication
+                  </option>
+
+                  <option value="mech">
+                    Mechanical Engineering
+                  </option>
+
+                  <option value="civil">
+                    Civil Engineering
+                  </option>
+
+                  <option value="business">
+                    Business Administration
+                  </option>
+
+                  <option value="design">
+                    Design
+                  </option>
+
+                  <option value="other">
+                    Other
+                  </option>
+
+                </select>
+
+                <span
+                  class="error-message"
+                  id="departmentError"
+                ></span>
+
+              </div>
+
+
+              <!-- YEAR -->
+
+              <div class="form-group">
+
+                <label for="year">
+                  Year
+                </label>
+
+                <select
+                  id="year"
+                  name="year"
+                  required
+                >
+
+                  <option value="" disabled selected>
+                    Select year
+                  </option>
+
+                  <option value="1">
+                    1st Year
+                  </option>
+
+                  <option value="2">
+                    2nd Year
+                  </option>
+
+                  <option value="3">
+                    3rd Year
+                  </option>
+
+                  <option value="4">
+                    4th Year
+                  </option>
+
+                </select>
+
+                <span
+                  class="error-message"
+                  id="yearError"
+                ></span>
+
+              </div>
+
+
+              <!-- PASSWORD -->
+
+              <div class="form-group">
+
+                <label for="signup-password">
+                  Password
+                </label>
+
+                <div class="password-field">
+
+                  <input
+                    type="password"
+                    id="signup-password"
+                    name="password"
+                    placeholder="Create a password"
+                    required
+                    minlength="8"
+                    autocomplete="new-password"
+                  >
+
+                  <button
+                    type="button"
+                    class="toggle-password"
+                    data-target="signup-password"
+                    aria-label="Show password"
+                  >
+
+                    <svg
+                      class="icon-eye"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+
+                      <path
+                        d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                      />
+
+                    </svg>
+
+                  </button>
+
+                </div>
+
+                <span
+                  class="error-message"
+                  id="signupPasswordError"
+                ></span>
+
+              </div>
+
+
+              <!-- CONFIRM PASSWORD -->
+
+              <div class="form-group">
+
+                <label for="confirm-password">
+                  Confirm Password
+                </label>
+
+                <div class="password-field">
+
+                  <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm_password"
+                    placeholder="Re-enter your password"
+                    required
+                    minlength="8"
+                    autocomplete="new-password"
+                  >
+
+                  <button
+                    type="button"
+                    class="toggle-password"
+                    data-target="confirm-password"
+                    aria-label="Show password"
+                  >
+
+                    <svg
+                      class="icon-eye"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+
+                      <path
+                        d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="3"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.6"
+                      />
+
+                    </svg>
+
+                  </button>
+
+                </div>
+
+                <span
+                  class="error-message"
+                  id="confirmPasswordError"
+                ></span>
+
+              </div>
+
+            </div>
+
+
+            <!-- TERMS -->
+
+            <label class="checkbox-wrap checkbox-wrap-terms">
+
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+                required
+              >
+
+              <span>
+                I agree to the
+                <a href="#">Terms</a>
+                and
+                <a href="#">Privacy Policy</a>
+              </span>
+
+            </label>
+
+            <span
+              class="error-message"
+              id="termsError"
+            ></span>
+
+
+            <!-- SIGNUP BUTTON -->
+
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              id="signupBtn"
+            >
+
+              <span class="btn-text">
+                Create Account
+              </span>
+
+              <span
+                class="btn-spinner"
+                aria-hidden="true"
+              ></span>
+
+            </button>
+
+
+            <!-- SUCCESS MESSAGE -->
+
+            <p
+              class="form-success"
+              id="signupSuccess"
+              hidden
+            >
+              ✓ Account created! Redirecting to your dashboard&hellip;
+            </p>
+
+          </form>
+
+
+          <!-- LOGIN LINK -->
+
+          <p class="auth-switch">
+
+            Already have an account?
+
+            <a href="/login/">
+              Login
+            </a>
+
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="site-footer">
+
+    <div class="footer-grid">
+
+
+      <!-- FOOTER BRAND -->
+
+      <div class="footer-brand">
+
+        <a href="/" class="nav-logo">
+          Campus<span>Bites</span>
+        </a>
+
+        <p>
+          Smarter meals, shorter lines.
+        </p>
+
+      </div>
+
+
+      <!-- FOOTER LINKS -->
+
+      <nav
+        class="footer-links"
+        aria-label="Footer navigation"
+      >
+
+        <h4>
+          Quick Links
+        </h4>
+
+        <ul>
+
+          <li>
+            <a href="#">
+              Privacy Policy
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              Terms
+            </a>
+          </li>
+
+          <li>
+            <a href="/#contact">
+              Contact
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+
+    <!-- COPYRIGHT -->
+
+    <p class="footer-copy">
+      &copy; 2026 Campus Bites. All rights reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- JavaScript -->
+
+  <script src="{% static 'auth.js' %}"></script>
+
+</body>
+</html>

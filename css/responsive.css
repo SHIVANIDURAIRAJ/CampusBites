@@ -1,0 +1,145 @@
+/* ==========================================================
+   Campus Bites — responsive.css
+   Tablet & mobile breakpoints for the Login / Sign Up pages.
+   Loaded last so these rules take priority.
+   ========================================================== */
+
+/* ==========================================================
+   Laptop (≤ 1200px) — tighten side padding, narrow gaps
+   ========================================================== */
+@media (max-width: 1200px) {
+  .auth-form-wrap {
+    padding: 60px 40px;
+  }
+
+  .auth-card {
+    padding: 44px 36px;
+  }
+
+  .auth-card-wide {
+    max-width: 560px;
+  }
+}
+
+/* ==========================================================
+   Tablet (≤ 1024px) — keep split layout, resize visual text
+   ========================================================== */
+@media (max-width: 1024px) {
+  .auth-visual-text {
+    padding: 36px;
+  }
+
+  .auth-visual-logo {
+    font-size: 1.6rem;
+  }
+
+  .auth-visual-tagline {
+    font-size: 1rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card-wide {
+    max-width: 480px;
+  }
+}
+
+/* ==========================================================
+   Small tablet / large mobile (≤ 900px)
+   Image moves above the form, form becomes full width.
+   ========================================================== */
+@media (max-width: 900px) {
+  .auth-split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .auth-visual {
+    height: 320px;
+  }
+
+  .auth-form-wrap {
+    padding: 56px 24px 70px;
+  }
+
+  .auth-card,
+  .auth-card-wide {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================
+   Mobile (≤ 768px) — stacked navbar, compact form spacing
+   ========================================================== */
+@media (max-width: 768px) {
+  .auth-visual {
+    height: 260px;
+  }
+
+  .auth-visual-text {
+    padding: 26px;
+  }
+
+  .auth-visual-logo {
+    font-size: 1.4rem;
+  }
+
+  .auth-visual-tagline {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .auth-card,
+  .auth-card-wide {
+    padding: 36px 26px;
+    border-radius: 20px;
+  }
+
+  .auth-title {
+    font-size: 1.8rem;
+  }
+
+  .auth-subtitle {
+    font-size: 0.88rem;
+    margin-bottom: 28px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .toggle-password .icon-eye {
+    width: 17px;
+    height: 17px;
+  }
+
+  .error-message {
+    font-size: 0.72rem;
+  }
+}
+
+/* ==========================================================
+   Small mobile (≤ 480px) — tightest spacing
+   ========================================================== */
+@media (max-width: 480px) {
+  .auth-form-wrap {
+    padding: 44px 16px 56px;
+  }
+
+  .auth-card,
+  .auth-card-wide {
+    padding: 30px 20px;
+  }
+
+  .auth-visual {
+    height: 220px;
+  }
+
+  .divider span {
+    padding: 0 10px;
+  }
+}

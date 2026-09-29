@@ -1,0 +1,208 @@
+/* ==========================================================
+   Campus Bites — contact.css
+   Styling for the landing page's Contact section. Relies on
+   design tokens (colors, fonts, radius, shadow) defined in
+   style.css :root — this file must be loaded after it.
+   ========================================================== */
+
+.contact-section {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 40px 40px 140px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.contact-text {
+  color: var(--text-secondary);
+  margin-bottom: 34px;
+  max-width: 460px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-details li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.contact-details a {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+  color: var(--orange);
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--orange);
+}
+
+.contact-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* ---------- Contact form card ---------- */
+.contact-form-card {
+  background: rgba(24, 24, 24, 0.6);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius);
+  padding: 44px 40px;
+  box-shadow: var(--shadow-soft);
+  transition: border-color 0.4s ease;
+}
+
+.contact-form-card:hover {
+  border-color: rgba(255, 138, 61, 0.25);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ---------- Shared form-field look (matches auth.css) ---------- */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.form-group label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.2px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid var(--card-border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--white);
+  resize: vertical;
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #7a7a7a;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  background-color: rgba(255, 138, 61, 0.05);
+  box-shadow: 0 0 0 4px rgba(255, 138, 61, 0.12);
+}
+
+.form-group.invalid input,
+.form-group.invalid textarea {
+  border-color: #FF5C5C;
+  background-color: rgba(255, 92, 92, 0.05);
+}
+
+.form-group.valid input,
+.form-group.valid textarea {
+  border-color: rgba(46, 204, 113, 0.5);
+}
+
+.error-message {
+  display: block;
+  min-height: 15px;
+  font-size: 0.76rem;
+  color: #FF5C5C;
+}
+
+.btn-block {
+  width: 100%;
+  text-align: center;
+}
+
+.btn-spinner {
+  display: none;
+  width: 17px;
+  height: 17px;
+  border: 2px solid rgba(23, 17, 11, 0.35);
+  border-top-color: #17110B;
+  border-radius: 50%;
+  margin-left: 10px;
+  vertical-align: middle;
+  animation: spin 0.7s linear infinite;
+}
+
+.btn.is-loading {
+  opacity: 0.85;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn.is-loading .btn-spinner {
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.form-success {
+  text-align: center;
+  color: var(--green);
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.35);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.86rem;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 30px 24px 100px;
+  }
+
+  .contact-form-card {
+    padding: 34px 26px;
+  }
+}
