@@ -117,5 +117,3 @@ print("Usability Test Passed")
 driver.quit()
 
 print("All Selenium tests completed successfully")
-# Intentional failure for CI demonstration
-assert False, "Intentional test failure for CI demonstration"
